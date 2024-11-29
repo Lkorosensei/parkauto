@@ -34,4 +34,21 @@ public class VoitureService {
 		VoitureRepository.delete(Voiture);
 	}
 	
+	//Mise à jour d'une voiture
+	public Voiture updateVoiture(Long idVoiture, Voiture voiture) {
+		
+		Voiture voitureMAJ = VoitureRepository.findById(idVoiture).get();
+		
+		voitureMAJ.setAnneeModel(voiture.getAnneeModel());
+		voitureMAJ.setCategorie(voiture.getCategorie());
+		voitureMAJ.setImmatriculation(voiture.getImmatriculation());
+		voitureMAJ.setMatricule(voiture.getMatricule());
+		voitureMAJ.setMedia(voiture.getMedia());
+		voitureMAJ.setNbPorte(voiture.getNbPorte());
+		voitureMAJ.setPoidsTotal(voiture.getPoidsTotal());
+		voitureMAJ.setPrix(voiture.getPrix());
+		voitureMAJ.setPuissanceFiscale(voiture.getPuissanceFiscale());
+		
+		return VoitureRepository.save(voitureMAJ);
+	}
 }
